@@ -1,0 +1,8 @@
+C:\Users\MichaelEnglish\source\repos\ClockControl\ClockControl\bin\Debug\ClockControl.dll
+C:\Users\MichaelEnglish\source\repos\ClockControl\ClockControl\bin\Debug\ClockControl.pdb
+C:\Users\MichaelEnglish\source\repos\ClockControl\ClockControl\obj\Debug\ClockControl.csprojAssemblyReference.cache
+C:\Users\MichaelEnglish\source\repos\ClockControl\ClockControl\obj\Debug\ClockControl.DigitalClock.resources
+C:\Users\MichaelEnglish\source\repos\ClockControl\ClockControl\obj\Debug\ClockControl.csproj.GenerateResource.cache
+C:\Users\MichaelEnglish\source\repos\ClockControl\ClockControl\obj\Debug\ClockControl.csproj.CoreCompileInputs.cache
+C:\Users\MichaelEnglish\source\repos\ClockControl\ClockControl\obj\Debug\ClockControl.dll
+C:\Users\MichaelEnglish\source\repos\ClockControl\ClockControl\obj\Debug\ClockControl.pdb

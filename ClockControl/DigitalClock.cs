@@ -8,14 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ClockControl
 {
     public partial class DigitalClock : UserControl
     {
-        private bool _format24Hours;
-        private int _alarmHour;
-        private int _alarmMinute;
 
+        private bool _format24Hours;
+
+        Alarm alarm = new Alarm();
+
+        [Category("Format24Hours")]
+        [Description("For 12hours Format Time as False\nFor 24hours Format Time as True")]
+        /// <summary>
+        /// Choose between 12 or 24 Hours Time Format
+        /// </summary>
         public bool Format24Hours
         {
             get { return _format24Hours; }
@@ -23,31 +30,6 @@ namespace ClockControl
         }
 
         public event EventHandler AlarmActivated;
-
-        private DateTime _alarm;
-
-        public DateTime Alarm
-        {
-            get { return _alarm; }
-            private set
-            {
-                var dateNow = DateTime.Now;
-                var date = new DateTime(0, dateNow.Month, dateNow.Day, AlarmHour, AlarmMinute, 0);
-                _alarm = date;
-            }
-        }
-
-        public int AlarmHour
-        {
-            get { return _alarmHour; }
-            set { _alarmHour = value;}
-        }
-         
-        public int AlarmMinute
-        {
-            get { return _alarmMinute; }
-            set { _alarmMinute = value;}
-        }
 
 
         public DigitalClock()
@@ -57,19 +39,18 @@ namespace ClockControl
 
         private void DigitalClock_Load(object sender, EventArgs e)
         {
-            clockTimer.Start();
+        clockTimer.Start();
         }
 
         public void clockTimer_Tick(object sender, EventArgs e)
         {
             checkFormatHours();
-            clockLabel.Text = Format24Hours? DateTime.Now.ToString("HH:mm:ss") : DateTime.Now.ToString("hh:mm:ss");
-            var dateNow = DateTime.Now;
-            var date = new DateTime(0, dateNow.Month, dateNow.Day, AlarmHour, AlarmMinute, 0);
-            _alarm = date;
+            clockLabel.Text = Format24Hours ? DateTime.Now.ToString("HH:mm:ss") : DateTime.Now.ToString("hh:mm:ss");
 
+            DateTime currentAlarm = alarm.GetAlarm();
             DateTime currentTime = DateTime.Now;
-            if (Alarm.Hour == currentTime.Hour && Alarm.Minute == currentTime.Minute)
+
+            if (currentAlarm.Hour == currentTime.Hour && currentAlarm.Minute == currentTime.Minute)
             {
                 AlarmActivated?.Invoke(this, e);
             }
@@ -78,17 +59,19 @@ namespace ClockControl
         //Check the choosen format clock
         private void checkFormatHours()
         {
-            Format24Hours = formart24HRadioButton.Checked ? true : false;
+            if (format12HRadioButton.Checked) Format24Hours = false;
+            else
+                Format24Hours = true;
         }
 
+        //Set the hour and minute alarm
         private void alarmStatusCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (alarmStatusCheckBox.Checked)
-            {
-                AlarmHour = (int)hourNumericUpDown.Value;
-                AlarmMinute = (int)minuteNumericUpDown.Value;
-            }
+                alarm.SetAlarm((int)hourNumericUpDown.Value, (int)minuteNumericUpDown.Value);
         }
+
+
 
     }
 }

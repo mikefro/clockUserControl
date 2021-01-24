@@ -34,14 +34,15 @@ namespace ClockControl
             this.clockLabel = new System.Windows.Forms.Label();
             this.clockGroupBox = new System.Windows.Forms.GroupBox();
             this.alarmGroupBox = new System.Windows.Forms.GroupBox();
+            this.formart24HRadioButton = new System.Windows.Forms.RadioButton();
+            this.format12HRadioButton = new System.Windows.Forms.RadioButton();
             this.alarmStatusLabel = new System.Windows.Forms.Label();
             this.minuteNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.hourNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.hourLabel = new System.Windows.Forms.Label();
             this.alarmStatusCheckBox = new System.Windows.Forms.CheckBox();
-            this.format12HRadioButton = new System.Windows.Forms.RadioButton();
-            this.formart24HRadioButton = new System.Windows.Forms.RadioButton();
+            this.posponerTimer = new System.Windows.Forms.Timer(this.components);
             this.clockGroupBox.SuspendLayout();
             this.alarmGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minuteNumericUpDown)).BeginInit();
@@ -58,7 +59,7 @@ namespace ClockControl
             this.clockLabel.BackColor = System.Drawing.Color.Black;
             this.clockLabel.Font = new System.Drawing.Font("ROG Fonts", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clockLabel.ForeColor = System.Drawing.Color.Lime;
-            this.clockLabel.Location = new System.Drawing.Point(18, 64);
+            this.clockLabel.Location = new System.Drawing.Point(46, 88);
             this.clockLabel.Margin = new System.Windows.Forms.Padding(0);
             this.clockLabel.Name = "clockLabel";
             this.clockLabel.Size = new System.Drawing.Size(185, 44);
@@ -69,9 +70,9 @@ namespace ClockControl
             // 
             this.clockGroupBox.Controls.Add(this.alarmGroupBox);
             this.clockGroupBox.Controls.Add(this.clockLabel);
-            this.clockGroupBox.Location = new System.Drawing.Point(9, 13);
+            this.clockGroupBox.Location = new System.Drawing.Point(20, 15);
             this.clockGroupBox.Name = "clockGroupBox";
-            this.clockGroupBox.Size = new System.Drawing.Size(503, 211);
+            this.clockGroupBox.Size = new System.Drawing.Size(491, 213);
             this.clockGroupBox.TabIndex = 4;
             this.clockGroupBox.TabStop = false;
             this.clockGroupBox.Text = "Clock";
@@ -88,10 +89,33 @@ namespace ClockControl
             this.alarmGroupBox.Controls.Add(this.alarmStatusCheckBox);
             this.alarmGroupBox.Location = new System.Drawing.Point(274, 19);
             this.alarmGroupBox.Name = "alarmGroupBox";
-            this.alarmGroupBox.Size = new System.Drawing.Size(200, 186);
+            this.alarmGroupBox.Size = new System.Drawing.Size(200, 182);
             this.alarmGroupBox.TabIndex = 0;
             this.alarmGroupBox.TabStop = false;
             this.alarmGroupBox.Text = "Set Alarm";
+            // 
+            // formart24HRadioButton
+            // 
+            this.formart24HRadioButton.AutoSize = true;
+            this.formart24HRadioButton.Location = new System.Drawing.Point(106, 116);
+            this.formart24HRadioButton.Name = "formart24HRadioButton";
+            this.formart24HRadioButton.Size = new System.Drawing.Size(68, 17);
+            this.formart24HRadioButton.TabIndex = 9;
+            this.formart24HRadioButton.TabStop = true;
+            this.formart24HRadioButton.Text = "24 Hours";
+            this.formart24HRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // format12HRadioButton
+            // 
+            this.format12HRadioButton.AutoSize = true;
+            this.format12HRadioButton.Checked = true;
+            this.format12HRadioButton.Location = new System.Drawing.Point(15, 116);
+            this.format12HRadioButton.Name = "format12HRadioButton";
+            this.format12HRadioButton.Size = new System.Drawing.Size(68, 17);
+            this.format12HRadioButton.TabIndex = 8;
+            this.format12HRadioButton.TabStop = true;
+            this.format12HRadioButton.Text = "12 Hours";
+            this.format12HRadioButton.UseVisualStyleBackColor = true;
             // 
             // alarmStatusLabel
             // 
@@ -154,36 +178,13 @@ namespace ClockControl
             this.alarmStatusCheckBox.UseVisualStyleBackColor = true;
             this.alarmStatusCheckBox.CheckedChanged += new System.EventHandler(this.alarmStatusCheckBox_CheckedChanged);
             // 
-            // format12HRadioButton
-            // 
-            this.format12HRadioButton.AutoSize = true;
-            this.format12HRadioButton.Checked = true;
-            this.format12HRadioButton.Location = new System.Drawing.Point(15, 116);
-            this.format12HRadioButton.Name = "format12HRadioButton";
-            this.format12HRadioButton.Size = new System.Drawing.Size(68, 17);
-            this.format12HRadioButton.TabIndex = 8;
-            this.format12HRadioButton.TabStop = true;
-            this.format12HRadioButton.Text = "12 Hours";
-            this.format12HRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // formart24HRadioButton
-            // 
-            this.formart24HRadioButton.AutoSize = true;
-            this.formart24HRadioButton.Location = new System.Drawing.Point(106, 116);
-            this.formart24HRadioButton.Name = "formart24HRadioButton";
-            this.formart24HRadioButton.Size = new System.Drawing.Size(68, 17);
-            this.formart24HRadioButton.TabIndex = 9;
-            this.formart24HRadioButton.TabStop = true;
-            this.formart24HRadioButton.Text = "24 Hours";
-            this.formart24HRadioButton.UseVisualStyleBackColor = true;
-            // 
             // DigitalClock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.clockGroupBox);
             this.Name = "DigitalClock";
-            this.Size = new System.Drawing.Size(515, 241);
+            this.Size = new System.Drawing.Size(529, 248);
             this.Load += new System.EventHandler(this.DigitalClock_Load);
             this.clockGroupBox.ResumeLayout(false);
             this.clockGroupBox.PerformLayout();
@@ -208,5 +209,6 @@ namespace ClockControl
         private System.Windows.Forms.Label alarmStatusLabel;
         private System.Windows.Forms.RadioButton formart24HRadioButton;
         private System.Windows.Forms.RadioButton format12HRadioButton;
+        private System.Windows.Forms.Timer posponerTimer;
     }
 }
