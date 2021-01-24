@@ -37,9 +37,35 @@ namespace ClockControl
             InitializeComponent();
         }
 
+        //public void Posponer(EventArgs e)
+        //{
+        //    if (MessageBox.Show("Postpone alarm?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+        //    {
+        //        var newMinute =  alarm.AlarmMinute + 1;
+        //        Alarm postAlarm = new Alarm();
+        //        postAlarm.AlarmMinute += newMinute;
+              
+        //        // user clicked yes
+        //        ComparingTimes(DateTime.Now, postAlarm.GetAlarm(),e);
+        //    }
+        //    else
+        //    {
+        //        // user clicked no
+        //    }
+        //}
+
         private void DigitalClock_Load(object sender, EventArgs e)
         {
-        clockTimer.Start();
+            clockTimer.Start();
+        }
+
+        private void ComparingTimes(DateTime now, DateTime alarm,EventArgs e)
+
+        {
+            if (now.Hour == alarm.Hour && now.Minute == alarm.Minute)
+            
+                AlarmActivated?.Invoke(this, e);
+            
         }
 
         public void clockTimer_Tick(object sender, EventArgs e)
@@ -50,10 +76,9 @@ namespace ClockControl
             DateTime currentAlarm = alarm.GetAlarm();
             DateTime currentTime = DateTime.Now;
 
-            if (currentAlarm.Hour == currentTime.Hour && currentAlarm.Minute == currentTime.Minute)
-            {
-                AlarmActivated?.Invoke(this, e);
-            }
+            ComparingTimes(currentTime, currentAlarm,e);
+                
+            
         }
 
         //Check the choosen format clock

@@ -29,8 +29,7 @@ namespace ClockControl
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.clockTimer = new System.Windows.Forms.Timer(this.components);
+            this.clockTimer = new System.Windows.Forms.Timer();
             this.clockLabel = new System.Windows.Forms.Label();
             this.clockGroupBox = new System.Windows.Forms.GroupBox();
             this.alarmGroupBox = new System.Windows.Forms.GroupBox();
@@ -42,7 +41,6 @@ namespace ClockControl
             this.label1 = new System.Windows.Forms.Label();
             this.hourLabel = new System.Windows.Forms.Label();
             this.alarmStatusCheckBox = new System.Windows.Forms.CheckBox();
-            this.posponerTimer = new System.Windows.Forms.Timer(this.components);
             this.clockGroupBox.SuspendLayout();
             this.alarmGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minuteNumericUpDown)).BeginInit();
@@ -55,11 +53,12 @@ namespace ClockControl
             // 
             // clockLabel
             // 
+            this.clockLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.clockLabel.AutoSize = true;
             this.clockLabel.BackColor = System.Drawing.Color.Black;
             this.clockLabel.Font = new System.Drawing.Font("ROG Fonts", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clockLabel.ForeColor = System.Drawing.Color.Lime;
-            this.clockLabel.Location = new System.Drawing.Point(46, 88);
+            this.clockLabel.Location = new System.Drawing.Point(43, 88);
             this.clockLabel.Margin = new System.Windows.Forms.Padding(0);
             this.clockLabel.Name = "clockLabel";
             this.clockLabel.Size = new System.Drawing.Size(185, 44);
@@ -209,6 +208,5 @@ namespace ClockControl
         private System.Windows.Forms.Label alarmStatusLabel;
         private System.Windows.Forms.RadioButton formart24HRadioButton;
         private System.Windows.Forms.RadioButton format12HRadioButton;
-        private System.Windows.Forms.Timer posponerTimer;
     }
 }

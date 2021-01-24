@@ -35,11 +35,12 @@ namespace ClockTest
             // digitalClock1
             // 
             this.digitalClock1.Format24Hours = false;
-            this.digitalClock1.Location = new System.Drawing.Point(25, 23);
+            this.digitalClock1.Location = new System.Drawing.Point(34, 12);
             this.digitalClock1.Name = "digitalClock1";
-            this.digitalClock1.Size = new System.Drawing.Size(515, 290);
+            this.digitalClock1.Size = new System.Drawing.Size(537, 248);
             this.digitalClock1.TabIndex = 0;
             this.digitalClock1.AlarmActivated += new System.EventHandler(this.digitalClock1_AlarmActivated);
+            this.digitalClock1.Load += new System.EventHandler(this.digitalClock1_Load);
             // 
             // ClockTestForm
             // 
@@ -56,6 +57,8 @@ namespace ClockTest
         #endregion
 
         private ClockControl.DigitalClock digitalClock1;
+
+        
     }
 }
 
