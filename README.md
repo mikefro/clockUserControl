@@ -42,8 +42,10 @@ The Digital Clock has the following additional features:
 </p>
 
 
-**Attention:<ins> The AlarmActived Event must be unsubscribed on the first instruction in it own Event method.**</ins>
-
+**Attention:<ins> The AlarmActived Event must be unsubscribed on the first instruction in it own Event method with the next instruction.**</ins>
+```c#
+this.digitalClock1.AlarmActivated -= new System.EventHandler(this.digitalClock1_AlarmActivated);
+```
 
 ## Support and new input
 
@@ -60,3 +62,5 @@ Moving forward I would like to expand the User Control features. Some ideas are:
 ## License 
 
 This project does not currently have any license
+
+
