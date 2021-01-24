@@ -41,9 +41,9 @@ The Digital Clock has the following additional features:
   <img width="637" height="286" src="https://github.com/miquelpaucasesnoves/clockUserControl/blob/main/screenshots/table.png">
 </p>
 
-<span style="color:red">cardinals</span>
-<p><span style="color:blue">Attention: The AlarmActived Event must be unsubscribed on the first instruction in it own Event method.</span></p>
-<span style="color=red">some **This is Red Bold.** text</span>
+
+**Attention:<ins> The AlarmActived Event must be unsubscribed on the first instruction in it own Event method.**</ins>
+
 
 ## Support and new input
 
