@@ -36,9 +36,14 @@ Or you can go to the following link if you prefer to download and use [Digital C
 ## Properties and characteristics of the Digital Clock
 
 The Digital Clock has the following additional features:
-- Boolean Format24hours; to set 12 or 24 hours as time format (djfgkjg)
-- Alarm feature: for this to activate it is characterised by an hour and a minute. The User Control takes care of building the Alarm object.
-- Features the event Alarm Activated where you can add the desired functions when the alarm is turned on.
+
+<p align="center">
+  <img width="637" height="286" src="https://github.com/miquelpaucasesnoves/clockUserControl/blob/main/screenshots/table.png">
+</p>
+
+<span style="color:red">cardinals</span>
+<p><span style="color:blue">Attention: The AlarmActived Event must be unsubscribed on the first instruction in it own Event method.</span></p>
+<span style="color=red">some **This is Red Bold.** text</span>
 
 ## Support and new input
 
