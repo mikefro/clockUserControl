@@ -19,7 +19,8 @@ In this case I have created a digital clock with an alarm that raises an event w
 ## Installation: 
 
 You can download the complete project if you wish to modify it for your own use.
-Or you can go to the following link if you prefer to download and use the User Control directly [Digital Clock Library] (https://github.com/miquelpaucasesnoves/clockUserControl/blob/main/ClockControl/bin/Release/ClockControl.dll)
+Or you can go to the following link if you prefer to download and use the User Control directly
+[Digital Clock Library](https://github.com/miquelpaucasesnoves/clockUserControl/blob/main/ClockControl/bin/Release/ClockControl.dll)
 
 - When using the User Control go to Toolbox list and click right and select Add Tab from the menu.
 
